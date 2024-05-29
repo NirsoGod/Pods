@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('background.jpg'); /* Substitua 'background.jpg' pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+.a{
+    text-decoration: none;
+}
+
+.card {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#qr-code {
+    width: 200px;
+    height: 200px;
+}
+
+#tempo-restante,
+#chave-aleatoria,
+#comprovante-whatsapp,
+#confirmacao-pagamento {
+    width: 300px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+    
+}
+
+
+
+button:hover {
+    background-color: #45a049;
+}

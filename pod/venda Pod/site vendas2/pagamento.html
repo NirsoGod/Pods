@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento PIX</title>
+<link rel="stylesheet" href="pagamento.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Pagamento PIX</h1>
+
+  <!-- Espaço para QR Code -->
+  <div id="qr-code" class="card">
+    <div class="card-content">
+      QR Code
+    </div>
+  </div>
+
+  <!-- Contador regressivo -->
+  <div id="tempo-restante" class="card">
+    <div class="card-content">
+      Tempo restante: <span id="tempo">10:00</span>
+    </div>
+  </div>
+
+  <!-- Opção para chave aleatória -->
+  <div id="chave-aleatoria" class="card">
+    <div class="card-content">
+      <p>Sua chave PIX:</p>
+      <input type="text" value="coloca seu pix aleatoria aqui" id="chave" readonly>
+      <button onclick="copiarChave()">Copiar</button>
+    </div>
+  </div>
+
+  <!-- Opção para enviar comprovante pelo WhatsApp -->
+  <div id="comprovante-whatsapp" class="card">
+    <div class="card-content">
+      <button  onclick="enviarComprovante()">Enviar Comprovante pelo WhatsApp</button>
+    </div>
+  </div>
+  
+
+  <!-- Confirmação de pagamento -->
+  <div id="confirmacao-pagamento" class="card">
+    <div class="card-content">
+      Pagamento Confirmado!
+    </div>
+  </div>
+</div>
+
+<script src="pagamento.js"></script>
+</body>
+</html>
