@@ -1,24 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venda em Varejo e Atacado</title>
-    <link rel="stylesheet" href="/atacado.css">
+    <title>Atacado</title>
+    <link rel="stylesheet" href="atacado.css">
 </head>
 <body>
-    <h1>Seleção de Produtos</h1>
-
-    <div class="product">
-        <label for="quantity1">Produto 1 - R$59.90</label>
-        <input type="number" id="quantity1" class="quantity" min="0" max="10" value="0">
-        <span class="total" id="total1">Total: R$0.00</span>
+    <div class="container">
+        <h2>Atacado</h2>
+        <form id="form">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required><br><br>
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" required><br><br>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required><br><br>
+            <label for="numero">Número:</label>
+            <input type="text" id="numero" name="numero" required><br><br>
+            <label for="quantidade">Quantidade de Produtos:</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" max="30" required><br><br>
+            <p id="valorTotal">Valor Total: R$ <span id="total"></span></p>
+            <p id="valorDesconto">Desconto: R$ <span id="desconto"></span></p>
+            <button type="submit">Prosseguir para Pagamento</button>
+        </form>
     </div>
 
-    <!-- Adicione mais produtos conforme necessário -->
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var quantidade = parseInt(document.getElementById("quantidade").value);
+            var precoUnitario = 69.90;
+            var total = quantidade * precoUnitario;
+            var desconto = Math.floor(quantidade / 2) * 12;
+            var totalComDesconto = total - desconto;
+            sessionStorage.setItem("quantidadeProdutos", quantidade);
+            sessionStorage.setItem("totalPriceWithDiscount", totalComDesconto);
+            sessionStorage.setItem("totalPriceWithoutDiscount", total); // Armazenar o valor total
+            window.location.href = "pagamento.html";
+        });
 
-    <button id="confirmButton" class="confirm-button">Confirmar Compra</button>
-
-    <script src="/atacado.js"></script>
+        // Exibir o valor total e o desconto
+        var quantidadeInput = document.getElementById("quantidade");
+        quantidadeInput.addEventListener("input", function() {
+            var quantidade = parseInt(quantidadeInput.value);
+            var precoUnitario = 69.90;
+            var total = quantidade * precoUnitario;
+            var desconto = Math.floor(quantidade / 2) * 12;
+            var totalComDesconto = total - desconto;
+            document.getElementById("total").innerText = total.toFixed(2);
+            document.getElementById("desconto").innerText = desconto.toFixed(2);
+        });
+    </script>
 </body>
 </html>

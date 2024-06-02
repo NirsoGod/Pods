@@ -1,19 +1,31 @@
-// Preço do produto no atacado
-const wholesalePrice = 59.90;
+function calculateTotal() {
+    var quantity = parseInt(document.getElementById("quantity").value);
+    var pricePerProduct = 69.90;
+    var total = quantity * pricePerProduct;
 
-// Atualiza o valor total do produto quando a quantidade é alterada
-function updateTotal(inputId, totalId) {
-    const quantity = parseInt(document.getElementById(inputId).value);
-    const total = quantity * wholesalePrice;
-    document.getElementById(totalId).textContent = `Total: R$${total.toFixed(2)}`;
+    // Aplicar desconto a cada 2 produtos
+    var discount = Math.floor(quantity / 2) * 12;
+    total -= discount;
+
+    document.getElementById("totalPrice").innerHTML = "Valor Total: R$ " + total.toFixed(2);
+    document.getElementById("discount").innerHTML = "Desconto: R$ " + discount.toFixed(2);
 }
 
-// Adicione event listeners para cada input
-document.getElementById('quantity1').addEventListener('change', () => updateTotal('quantity1', 'total1'));
+function checkForm() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var cep = document.getElementById("cep").value;
+    var address = document.getElementById("address").value;
+    var houseNumber = document.getElementById("houseNumber").value;
 
-
-
-// Event listener para o botão de confirmar compra
-document.getElementById('confirmButton').addEventListener('click', () => {
-    alert('Compra confirmada! Obrigado por comprar conosco.');
-});
+    if (name && phone && cep && address && houseNumber) {
+        // Salvar o valor total da compra no armazenamento local
+        var total = document.getElementById("totalPrice").innerHTML.split(" ")[3]; // Extrair o valor total
+        localStorage.setItem("totalPrice", total);
+        
+        // Redirecionar para a página de pagamento
+        window.location.href = "pagamento.html";
+    } else {
+        alert("Por favor, preencha todos os campos.");
+    }
+}

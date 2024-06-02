@@ -1,55 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagamento PIX</title>
-<link rel="stylesheet" href="pagamento.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="pagamento.css">
 </head>
 <body>
-
-<div class="container">
-  <h1>Pagamento PIX</h1>
-
-  <!-- Espaço para QR Code -->
-  <div id="qr-code" class="card">
-    <div class="card-content">
-      QR Code
+    <div class="container">
+        <h2>Pagamento</h2>
+        <p>Valor total: R$ <span id="valorTotal"></span></p>
+        <p>Valor Com Desconto: R$ <span id="valorAPagar"></span></p>
+        <p>Por favor, faça o pagamento via PIX:</p>
+        <div id="qrcode"></div>
+        <div id="pixKeyContainer">
+            <!-- Botão para mostrar a chave PIX -->
+            <button onclick="togglePixKey()">Mostrar Chave PIX</button>
+            <!-- Chave PIX oculta inicialmente -->
+            <p id="pixKey" style="display: none;">111.111.111.11</p>
+            <!-- Botão para copiar a chave PIX -->
+            <button onclick="copyPixKey()">Copiar Chave PIX</button>
+        </div>
+        <!-- Exibir o tempo de expiração -->
+        <p id="expirationTime">Tempo de Expiração: 05:00</p>
     </div>
-  </div>
 
-  <!-- Contador regressivo -->
-  <div id="tempo-restante" class="card">
-    <div class="card-content">
-      Tempo restante: <span id="tempo">10:00</span>
-    </div>
-  </div>
+    <script>
+        // Recuperar o valor total e o valor com desconto da sessionStorage
+        var valorTotal = parseFloat(sessionStorage.getItem("totalPriceWithoutDiscount"));
+        var valorAPagar = parseFloat(sessionStorage.getItem("totalPriceWithDiscount"));
+        
+        // Exibir os valores na tela
+        document.getElementById("valorTotal").innerText = valorTotal.toFixed(2);
+        document.getElementById("valorAPagar").innerText = valorAPagar.toFixed(2);
 
-  <!-- Opção para chave aleatória -->
-  <div id="chave-aleatoria" class="card">
-    <div class="card-content">
-      <p>Sua chave PIX:</p>
-      <input type="text" value="coloca seu pix aleatoria aqui" id="chave" readonly>
-      <button onclick="copiarChave()">Copiar</button>
-    </div>
-  </div>
+        // Função para exibir a chave PIX
+        function togglePixKey() {
+            var pixKey = document.getElementById("pixKey");
+            if (pixKey.style.display === "none") {
+                pixKey.style.display = "block";
+            } else {
+                pixKey.style.display = "none";
+            }
+        }
 
-  <!-- Opção para enviar comprovante pelo WhatsApp -->
-  <div id="comprovante-whatsapp" class="card">
-    <div class="card-content">
-      <button  onclick="enviarComprovante()">Enviar Comprovante pelo WhatsApp</button>
-    </div>
-  </div>
-  
+        // Função para copiar a chave PIX
+        function copyPixKey() {
+            var pixKey = document.getElementById("pixKey").innerText;
+            navigator.clipboard.writeText(pixKey);
+            alert("Chave PIX copiada: " + pixKey);
+        }
 
-  <!-- Confirmação de pagamento -->
-  <div id="confirmacao-pagamento" class="card">
-    <div class="card-content">
-      Pagamento Confirmado!
-    </div>
-  </div>
-</div>
-
-<script src="pagamento.js"></script>
+        // Exibir e atualizar o tempo de expiração
+        var expirationTime = 5 * 60; // 5 minutos em segundos
+        var expirationTimer = setInterval(function() {
+            var minutes = Math.floor(expirationTime / 60);
+            var seconds = expirationTime % 60;
+            document.getElementById("expirationTime").innerText = "Tempo de Expiração: " + 
+            ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+            expirationTime--;
+            if (expirationTime < 0) {
+                clearInterval(expirationTimer);
+                alert("Sua sessão expirou. Por favor, faça o pedido novamente.");
+                window.location.href = "atacado.html";
+            }
+        }, 1000); // Atualizar a cada segundo
+    </script>
 </body>
 </html>

@@ -2,80 +2,61 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    background-image: url('background.jpg'); /* Substitua 'background.jpg' pelo caminho da sua imagem de fundo */
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    
+    background-color: #f2f2f2; /* Cor de fundo agradável */
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    
-}
-.a{
-    text-decoration: none;
-}
-
-.card {
-    margin: 20px;
-    padding: 20px;
+    width: 80%;
+    margin: 50px auto;
     background-color: #fff;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333; /* Cor do texto */
 }
 
-.card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px; /* Tamanho da fonte do título */
 }
 
-h1 {
-    color: #333;
+.container p {
+    margin-bottom: 15px;
+    color: #666; /* Cor do texto */
 }
 
-#qr-code {
+#qrcode {
     width: 200px;
     height: 200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-#tempo-restante,
-#chave-aleatoria,
-#comprovante-whatsapp,
-#confirmacao-pagamento {
-    width: 300px;
+#pixKeyContainer {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-   
+#pixKey {
+    font-weight: bold;
+    color: #ff5733; /* Cor da chave PIX */
+    font-size: 1.2em;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-   
-    
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    margin: 0 5px; /* Margem entre os botões */
 }
 
-
-
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Cor de fundo do botão ao passar o mouse */
 }
