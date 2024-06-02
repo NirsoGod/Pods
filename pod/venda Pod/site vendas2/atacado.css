@@ -49,3 +49,16 @@ button:hover {
     font-weight: bold;
     color: #ff5733;
 }
+
+/* Regras de mídia para tornar o formulário responsivo */
+@media screen and (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    form {
+        width: 95%;
+    }
+}
