@@ -23,6 +23,8 @@
         </div>
         <!-- Exibir o tempo de expiração -->
         <p id="expirationTime">Tempo de Expiração: 05:00</p>
+        <!-- Botão para enviar comprovante pelo WhatsApp -->
+        <button onclick="sendReceiptWhatsApp()">Enviar Comprovante pelo WhatsApp</button>
     </div>
 
     <script>
@@ -49,6 +51,14 @@
             var pixKey = document.getElementById("pixKey").innerText;
             navigator.clipboard.writeText(pixKey);
             alert("Chave PIX copiada: " + pixKey);
+        }
+
+        // Função para enviar comprovante pelo WhatsApp
+        function sendReceiptWhatsApp() {
+            var pixKey = document.getElementById("pixKey").innerText;
+            var mensagem = `Comprovante de pagamento:\n\nValor Total: R$ ${valorTotal.toFixed(2)}\nValor Com Desconto: R$ ${valorAPagar.toFixed(2)}\nChave PIX: ${pixKey}\n`;
+            var url = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
         }
 
         // Exibir e atualizar o tempo de expiração
