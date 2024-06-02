@@ -11,7 +11,7 @@ function updateTotal(inputId, totalId) {
 // Adicione event listeners para cada input
 document.getElementById('quantity1').addEventListener('change', () => updateTotal('quantity1', 'total1'));
 
-// Adicione mais event listeners conforme necessário para outros produtos
+
 
 // Event listener para o botão de confirmar compra
 document.getElementById('confirmButton').addEventListener('click', () => {
