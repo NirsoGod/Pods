@@ -1,20 +1,23 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #6b6b6b17; ;
 }
 
 form {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 80%;
     margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
+    background-color: #6b6b6b17; ;
+    padding: 50px;
+    
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
+    font-size: 2em;
     text-align: center;
     margin-bottom: 20px;
     color: #333;
@@ -34,6 +37,7 @@ input, button {
 }
 
 button {
+    
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -51,13 +55,13 @@ button:hover {
 }
 
 /* Regras de mídia para tornar o formulário responsivo */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     form {
-        width: 90%;
+        width: 80%;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
     form {
         width: 95%;
     }

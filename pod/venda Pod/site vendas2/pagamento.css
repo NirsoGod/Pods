@@ -76,7 +76,7 @@ button:hover {
     background-color: black;
     text-align: center;
     padding: 20px;
-    width: 80%;
+    width: 100%;
     color: white;
 }
 .image-container {
@@ -91,4 +91,4 @@ button:hover {
 }
 
     
-
+    
