@@ -141,9 +141,10 @@ a{
     transform: translateX(-50%);
 }
 
-h4{
-    color: #555;
+h3{
+    color: #000000;
     font-weight: normal;
+    font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
 .col-4 p {
