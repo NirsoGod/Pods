@@ -54,6 +54,26 @@ button:hover {
     color: #ff5733;
 }
 
+
+.footer {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    color: white;
+    
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    padding: 20px 0;
+    width: 100%;
+}
+.image-container img {
+    margin: 0 10px;
+}
+
 /* Regras de mídia para tornar o formulário responsivo */
 @media screen and (max-width: 500px) {
     form {
