@@ -5,6 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 .navbar{
     display:flex;
     align-items: center;
@@ -36,6 +37,7 @@ a{
     margin:auto;
     padding-left: 25px;
     padding-right: 25px;
+    
 }
 
 .row {
@@ -43,6 +45,7 @@ a{
     align-items: center;
     flex-wrap: wrap;
     justify-content:space-around;
+    
 }
 
 .col-2{
@@ -77,10 +80,17 @@ a{
 }
 .header{
     background: radial-gradient(#fff,#ffd6d6);
+    background-image: url(./img/PromoJunho.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+
 }
 
 .header .row{
     margin-top: 70px;
+    
+    
 }
 
 .categories{
